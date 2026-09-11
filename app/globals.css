@@ -1,26 +1,117 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-light: var(--c-light);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --spacing-header-height: var(--header-height);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --background: #fff;
+  --foreground: #333;
+  --c-light: #f4f4f4;
+
+  --header-height: 80px;
+}
+
+.dark {
+  --background: #333;
+  --foreground: #fff;
+  --c-light: #333;
+}
+
+@layer base {
+  /* * {
+    @apply;
+  } */
+  body {
+    @apply bg-background text-foreground;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* html {
+    @apply font-body;
+  } */
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  .c-wrapper {
+    @apply px-4 md:px-10;
+  }
+
+  .c-container {
+    @apply max-w-7xl w-full mx-auto;
+  }
+
+  .image-reveal {
+    clip-path: inset(100% 0 0 0);
+    animation: image-wipe 5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  }
+
+  @keyframes image-wipe {
+    /* hidden */
+    0%,
+    10% {
+      clip-path: inset(100% 0 0 0);
+    }
+
+    /* reveal top -> bottom */
+    40% {
+      clip-path: inset(0 0 0 0);
+    }
+
+    /* stay visible */
+    60% {
+      clip-path: inset(0 0 0 0);
+    }
+
+    /* disappear top -> bottom */
+    90%,
+    100% {
+      clip-path: inset(100% 0 0 0);
+    }
+  }
+
+  .image-reveal {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+
+    animation: image-wipe 5s linear infinite;
+  }
+
+  @keyframes image-wipe {
+    /* Hidden */
+    0%,
+    10% {
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    /* Reveal TOP -> BOTTOM */
+    40% {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    /* Hold */
+    60% {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    /* Disappear TOP -> BOTTOM */
+    90% {
+      clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+    }
+
+    /* Reset */
+    100% {
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+  }
 }
