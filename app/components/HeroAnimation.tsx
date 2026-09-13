@@ -2,23 +2,23 @@
 
 import React, { useEffect, useRef } from "react";
 
+const THEME_COLORS = {
+  light: {
+    base: "rgba(30, 35, 45, ",
+    typing: "rgb(30, 35, 45)", // Vivid blue for light mode
+  },
+  dark: {
+    base: "rgba(220, 225, 235, ",
+    typing: "rgb(220, 255, 235)", // Crisp solid white for dark mode active typing
+  },
+};
+
 export default function HeroGraduatedCodeDecor({
   theme,
 }: {
   theme: "dark" | "light";
 }) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-
-  const THEME_COLORS = {
-    light: {
-      base: "rgba(30, 35, 45, ",
-      typing: "rgb(30, 35, 45)", // Vivid blue for light mode
-    },
-    dark: {
-      base: "rgba(220, 225, 235, ",
-      typing: "rgb(220, 255, 235)", // Crisp solid white for dark mode active typing
-    },
-  };
 
   useEffect(() => {
     const canvas = canvasRef.current;

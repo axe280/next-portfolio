@@ -11,6 +11,8 @@
   --font-mono: var(--font-geist-mono);
 
   --spacing-header-height: var(--header-height);
+
+  --breakpoint-3xl: 1880px;
 }
 
 :root {
@@ -49,7 +51,7 @@
   }
 
   .c-container {
-    @apply max-w-7xl w-full mx-auto;
+    @apply max-w-7xl 3xl:max-w-[1640px] w-full mx-auto;
   }
 
   .image-reveal {

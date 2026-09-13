@@ -2,13 +2,14 @@ import Link from "next/link";
 import { BiLogoLinkedin, BiLogoTelegram } from "react-icons/bi";
 import { MdAlternateEmail } from "react-icons/md";
 import { SiUpwork } from "react-icons/si";
-import HeroDecor from "./HeroDecor";
+import HeroAnimationWrapper from "./HeroAnimationWrapper";
 
 export default function Hero() {
   return (
     <div className="c-wrapper bg-light md:h-screen flex flex-col min-w-px overflow-hidden relative">
-      <div className="absolute left-0 right-0 translate-x-1/2 md:translate-x-1/3 xl:translate-0 top-header-height -mt-6 md:mt-0 md:top-0 bottom-0 z-0 md:z-10">
-        <HeroDecor theme="light" />
+      <div className="absolute left-0 right-0 translate-x-1/3 lg:translate-x-0 top-header-height -mt-6 md:mt-0 md:top-0 bottom-0 z-0 md:z-10">
+        <HeroAnimationWrapper />
+        <div className="md:hidden absolute top-85 left-0 right-0 bottom-0 bg-light"></div>
       </div>
 
       <div
@@ -21,7 +22,7 @@ export default function Hero() {
           {/* Illustration */}
 
           <div className="flex justify-center items-start grow">
-            <div className="overflow-hidden relative px-4 md:px-0 md:w-full h-full">
+            <div className="overflow-hidden relative px-4 md:px-0 w-full h-full">
               <img
                 src="/me5.jpeg"
                 width="507"
@@ -40,11 +41,11 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="flex mt-auto flex-col gap-2 lg:gap-3 2xl:gap-4 text-center justify-center">
-            <strong className="text-3xl lg:text-4xl 2xl:text-5xl">
+          <div className="flex mt-auto flex-col gap-2 lg:gap-3 2xl:gap-4 text-center justify-center items-center">
+            <strong className="text-3xl px-2 bg-light lg:text-4xl 2xl:text-5xl">
               Oleksii Zibariev
             </strong>
-            <span>{"// Frontend Developer //"}</span>
+            <span className="bg-light px-2">{"// Frontend Developer //"}</span>
           </div>
         </div>
 
@@ -56,7 +57,7 @@ export default function Hero() {
             </div>
           </div>
           <div className="flex items-center gap-4 text-2xl md:flex-col md:justify-center">
-            <Link href={"/"} className="hover:text-orange-500">
+            <Link href={"/"} className="hover:text-yellow-500">
               <BiLogoTelegram />
             </Link>
             <Link
@@ -83,7 +84,7 @@ export default function Hero() {
 
         {/* Aside Info */}
         {/* <div className="md:mt-auto md:mb-[75%] 2xl:mb-[100%] max-w-70"> */}
-        <div className="md:mt-auto max-w-70">
+        <div className="md:mt-auto max-w-70 2xl:mb-[20%]">
           <p>
             <span className="bg-light">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut atque
