@@ -1,3 +1,5 @@
+import GalleryElements from "./GalleryElements";
+
 export default function Portfolio() {
   return (
     <div className="bg-mist-50">
@@ -13,7 +15,7 @@ export default function Portfolio() {
       </div>
 
       <div>
-        <img src="https://placehold.co/600x400" alt="" loading="lazy" />
+        <GalleryElements />
       </div>
     </div>
   );
